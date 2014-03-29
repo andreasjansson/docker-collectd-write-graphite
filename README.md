@@ -12,12 +12,12 @@ Collectd metrics:
 Environment variables
 ---------------------
 
-* HOST_NAME
+* `HOST_NAME`
   - Will be sent to Graphite
   - Required
-* GRAPHITE_HOST
+* `GRAPHITE_HOST`
   - Graphite IP or hostname
   - Required
-* GRAPHITE_PORT
+* `GRAPHITE_PORT`
   - Graphite port
   - Optional, defaults to 2003
