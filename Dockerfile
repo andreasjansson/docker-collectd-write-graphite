@@ -1,5 +1,7 @@
 FROM    ubuntu:precise
 
+ENV     DEBIAN_FRONTEND noninteractive
+
 # only later versions of collectd have the graphite plugin
 RUN     echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
 RUN     echo "deb http://ppa.launchpad.net/vbulax/collectd5/ubuntu precise main" >> /etc/apt/sources.list
