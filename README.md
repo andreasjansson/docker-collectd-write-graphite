@@ -4,6 +4,7 @@ collectd-write-graphite
 Basic collectd-based server monitoring. Sends stats to Graphite.
 
 Collectd metrics:
+
 * CPU used/free/idle/etc
 * Free disk (via the .dockerinit filesystem)
 * Load average
