@@ -22,3 +22,6 @@ Environment variables
 * `GRAPHITE_PORT`
   - Graphite port
   - Optional, defaults to 2003
+* `GRAPHITE_PREFIX`
+  - Graphite prefix
+  - Optional, defaults to collectd.
