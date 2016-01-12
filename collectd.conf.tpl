@@ -9,15 +9,41 @@ LoadPlugin cpu
 LoadPlugin df
 LoadPlugin load
 LoadPlugin memory
+LoadPlugin disk
 LoadPlugin write_graphite
 
 <Plugin df>
-  Device "hostfs"
-  MountPoint "/.dockerinit"
-  IgnoreSelected false
+  # expose host's mounts into container using -v /:/host:ro  (location inside container does not matter much)
+  # ignore rootfs; else, the root file-system would appear twice, causing
+  # one of the updates to fail and spam the log
+  FSType rootfs
+  # ignore the usual virtual / temporary file-systems
+  FSType sysfs
+  FSType proc
+  FSType devtmpfs
+  FSType devpts
+  FSType tmpfs
+  FSType fusectl
+  FSType cgroup
+  FSType overlay
+  FSType debugfs
+  FSType pstore
+  FSType securityfs
+  FSType hugetlbfs
+  FSType squashfs
+  FSType mqueue
+  MountPoint "/etc/resolv.conf"
+  MountPoint "/etc/hostname"
+  MountPoint "/etc/hosts"
+  IgnoreSelected true
   ReportByDevice false
   ReportReserved true
   ReportInodes true
+</Plugin>
+
+<Plugin "disk">
+  Disk "/^[hs]d[a-z]/"
+  IgnoreSelected false
 </Plugin>
 
 <Plugin "write_graphite">

@@ -6,7 +6,8 @@ Basic collectd-based server monitoring. Sends stats to Graphite.
 Collectd metrics:
 
 * CPU used/free/idle/etc
-* Free disk (via the .dockerinit filesystem)
+* Free disk (via mounting hosts '/' into container, eg: -v /:/hostfs:ro)
+* Disk performance
 * Load average
 * Memory used/free/etc
 
