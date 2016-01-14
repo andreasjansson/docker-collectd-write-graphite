@@ -10,7 +10,14 @@ LoadPlugin df
 LoadPlugin load
 LoadPlugin memory
 LoadPlugin disk
+LoadPlugin interface
+LoadPlugin uptime
+LoadPlugin swap
 LoadPlugin write_graphite
+
+<Plugin cpu>
+  ReportByCpu {{ REPORT_BY_CPU | default("false") }}
+</Plugin>
 
 <Plugin df>
   # expose host's mounts into container using -v /:/host:ro  (location inside container does not matter much)
@@ -45,6 +52,15 @@ LoadPlugin write_graphite
   Disk "/^[hs]d[a-z]/"
   IgnoreSelected false
 </Plugin>
+
+
+<Plugin interface>
+  Interface "lo"
+  Interface "/^veth.*/"
+  Interface "/^docker.*/"
+  IgnoreSelected true
+</Plugin>
+
 
 <Plugin "write_graphite">
  <Carbon>

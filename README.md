@@ -10,6 +10,9 @@ Collectd metrics:
 * Disk performance
 * Load average
 * Memory used/free/etc
+* Uptime
+* Network interface
+* Swap
 
 Environment variables
 ---------------------
@@ -26,3 +29,7 @@ Environment variables
 * `GRAPHITE_PREFIX`
   - Graphite prefix
   - Optional, defaults to collectd.
+* `REPORT_BY_CPU`
+  - Report per-CPU metrics if true, global sum of CPU metrics if false (details: [collectd.conf man page](https://collectd.org/documentation/manpages/collectd.conf.5.shtml#plugin_cpu))
+  - Optional, defaults to false.
+
