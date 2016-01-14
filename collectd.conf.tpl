@@ -15,6 +15,10 @@ LoadPlugin uptime
 LoadPlugin swap
 LoadPlugin write_graphite
 
+<Plugin cpu>
+  ReportByCpu {{ REPORT_BY_CPU | default("false") }}
+</Plugin>
+
 <Plugin df>
   # expose host's mounts into container using -v /:/host:ro  (location inside container does not matter much)
   # ignore rootfs; else, the root file-system would appear twice, causing
