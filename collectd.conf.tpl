@@ -10,6 +10,9 @@ LoadPlugin df
 LoadPlugin load
 LoadPlugin memory
 LoadPlugin disk
+LoadPlugin interface
+LoadPlugin uptime
+LoadPlugin swap
 LoadPlugin write_graphite
 
 <Plugin df>
@@ -45,6 +48,15 @@ LoadPlugin write_graphite
   Disk "/^[hs]d[a-z]/"
   IgnoreSelected false
 </Plugin>
+
+
+<Plugin interface>
+  Interface "lo"
+  Interface "/^veth.*/"
+  Interface "/^docker.*/"
+  IgnoreSelected true
+</Plugin>
+
 
 <Plugin "write_graphite">
  <Carbon>
