@@ -1,7 +1,7 @@
 Hostname "{{ HOST_NAME }}"
 
 FQDNLookup false
-Interval 10
+Interval {{ COLLECT_INTERVAL | default("10") }}
 Timeout 2
 ReadThreads 5
 

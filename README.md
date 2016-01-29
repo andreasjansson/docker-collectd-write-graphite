@@ -32,4 +32,6 @@ Environment variables
 * `REPORT_BY_CPU`
   - Report per-CPU metrics if true, global sum of CPU metrics if false (details: [collectd.conf man page](https://collectd.org/documentation/manpages/collectd.conf.5.shtml#plugin_cpu))
   - Optional, defaults to false.
-
+* `COLLECT_INTERVAL`
+  - Collection interval and thus resolution of metrics
+  - Optional, defaults to 10
